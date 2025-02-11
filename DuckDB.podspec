@@ -1,3 +1,7 @@
+# This is a fork of the original DuckDB-Swift repository, with the following changes:
+# - The source is from the niente-internal/duckdb-swift repository
+# - A podspec is added to allow the use of the framework with CocoaPods
+
 Pod::Spec.new do |spec|
   spec.name         = "DuckDB-Swift"
   spec.version      = "1.0.0"
