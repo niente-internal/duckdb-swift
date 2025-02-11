@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = { "DuckDB Developers" => "info@duckdb.org" }
   spec.source       = { 
-    :git => "https://github.com/duckdbniente-internal/duckdb-swift.git", 
+    :git => "https://github.com/niente-internal/duckdb-swift.git", 
     :tag => "v#{spec.version}" 
   }
 
