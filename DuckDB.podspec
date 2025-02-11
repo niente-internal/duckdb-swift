@@ -34,7 +34,10 @@ Pod::Spec.new do |spec|
   # Fix header search paths to make sure nested headers are found
   spec.xcconfig = {
     'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/DuckDB-Swift/Sources/Cduckdb/duckdb/src/include/**"',
-    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
+    'CLANG_CXX_LANGUAGE_STANDARD' => 'gnu++17',
+    'CLANG_CXX_LIBRARY' => 'libc++',
+    'OTHER_CPLUSPLUSFLAGS' => '-std=c++17'
   }
 
   # Exclude unnecessary generated files to prevent conflicts
