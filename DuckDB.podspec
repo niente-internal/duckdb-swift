@@ -7,11 +7,11 @@ Pod::Spec.new do |spec|
                      This package provides a native Swift API for DuckDB, designed to be fast, 
                      reliable and easy to use across Apple, Linux, and Windows platforms.
                      DESC
-  spec.homepage     = "https://github.com/duckdb/duckdb-swift"
+  spec.homepage     = "https://github.com/niente-internal/duckdb-swift"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = { "DuckDB Developers" => "info@duckdb.org" }
   spec.source       = { 
-    :git => "https://github.com/duckdb/duckdb-swift.git", 
+    :git => "https://github.com/duckdbniente-internal/duckdb-swift.git", 
     :tag => "v#{spec.version}" 
   }
 
@@ -22,11 +22,8 @@ Pod::Spec.new do |spec|
   # Preserve the original structure of DuckDB's include folder
   spec.preserve_paths = "Sources/Cduckdb/duckdb/src/include/**"
   
-  # Specify public headers explicitly to avoid conflicts
-  spec.public_header_files = [
-    "Sources/Cduckdb/duckdb/src/include/duckdb/main/*.hpp",
-    "Sources/Cduckdb/duckdb/src/include/duckdb/storage/compression/roaring/*.hpp"
-  ]
+  # Dynamically include all headers inside 'include/**' instead of manually specifying subdirectories
+  spec.public_header_files = "Sources/Cduckdb/duckdb/src/include/**/*.hpp"
 
   # Ensure headers retain their directory structure
   spec.header_mappings_dir = "Sources/Cduckdb/duckdb/src/include"
