@@ -26,22 +26,36 @@ based API for clients across Apple, Linux and Windows platforms.
 DuckDB is a high-performance analytical database system. It is designed to be fast, reliable and easy to use. DuckDB provides a rich SQL dialect, with support far beyond basic SQL. DuckDB supports arbitrary and nested correlated subqueries, window functions, collations, complex types (arrays, structs), and more. For more information on the goals of DuckDB, please refer to [the Why DuckDB page on our website](https://duckdb.org/why_duckdb).
 
 ## Installation
-To use DuckDB in your Swift based project:
+DuckDB can be integrated into your Swift project using either Swift Package Manager or CocoaPods.
 
-1. Add DuckDB to your `Swift.package` dependencies:
+### Swift Package Manager
+To use DuckDB with SPM, add it to your `Swift.package` dependencies:
 
-    ```swift
-    .package(url: "https://github.com/duckdb/duckdb-swift", .upToNextMajor(from: .init(1, 0, 0))),
-    ```
+```swift
+.package(url: "https://github.com/duckdb/duckdb-swift", .upToNextMajor(from: .init(1, 0, 0))),
+```
 
-2. Add `DuckDB` as a dependency to your target:
+Then add `DuckDB` as a dependency to your target:
  
-    ```swift
-    .target(name: "TargetName", dependencies: [
-      .product(name: "DuckDB", package: "duckdb-swift"),
-    ...
-    ]),
-    ```
+```swift
+.target(name: "TargetName", dependencies: [
+  .product(name: "DuckDB", package: "duckdb-swift"),
+...
+]),
+```
+
+### CocoaPods
+To use DuckDB with CocoaPods:
+
+1. Create a Podfile if you haven't already
+2. Add the following line to your Podfile:
+
+```ruby
+pod 'DuckDB-Swift', '~> 1.0.0'
+```
+
+3. Run `pod install` in your project directory
+4. Open your `.xcworkspace` file to begin using DuckDB
 
 ## Documentation and Playgrounds
 The DuckDB Swift API is fully documented using DocC and the documentation can be generated from within Xcode via `Product > Build Documentation`.
