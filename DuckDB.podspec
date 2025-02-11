@@ -31,6 +31,15 @@ Pod::Spec.new do |spec|
   # Ensure headers retain their directory structure
   spec.header_mappings_dir = "Sources/Cduckdb/duckdb/src/include"
 
+  # Fix header search paths to make sure nested headers are found
+  spec.xcconfig = {
+    'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/DuckDB-Swift/Sources/Cduckdb/duckdb/src/include/**"',
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+  }
+
+  # Exclude unnecessary generated files to prevent conflicts
+  spec.exclude_files = "Sources/Cduckdb/duckdb/src/include/duckdb/storage/compression/roaring/generated/**"
+
   # Source files
   spec.source_files = "Sources/**/*"
 
