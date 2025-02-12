@@ -28,6 +28,9 @@ Pod::Spec.new do |spec|
   # Dynamically include all headers inside 'include/**' instead of manually specifying subdirectories
   spec.public_header_files = "Sources/Cduckdb/duckdb/src/include/**/*.hpp"
 
+  # Exclude C++ headers from the public API
+  spec.private_header_files = "Sources/Cduckdb/duckdb/src/include/**/*.hpp"
+
   # Ensure headers retain their directory structure
   spec.header_mappings_dir = "Sources/Cduckdb/duckdb/src/include"
 
@@ -40,6 +43,9 @@ Pod::Spec.new do |spec|
     'OTHER_CPLUSPLUSFLAGS' => '-std=c++17 -stdlib=libc++',
     'GCC_INPUT_FILETYPE' => 'sourcecode.cpp.objcpp' # Ensure Objective-C++ compatibility
   }
+
+  # Ensure the library is linked with the C++ standard library
+  spec.libraries = "c++"
 
   # Exclude unnecessary generated files to prevent conflicts
   spec.exclude_files = "Sources/Cduckdb/duckdb/src/include/duckdb/storage/compression/roaring/generated/**"
