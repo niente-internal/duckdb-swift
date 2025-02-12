@@ -37,7 +37,8 @@ Pod::Spec.new do |spec|
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
     'CLANG_CXX_LANGUAGE_STANDARD' => 'gnu++17',
     'CLANG_CXX_LIBRARY' => 'libc++',
-    'OTHER_CPLUSPLUSFLAGS' => '-std=c++17 -stdlib=libc++ -isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1'
+    'OTHER_CPLUSPLUSFLAGS' => '-std=c++17 -stdlib=libc++',
+    'GCC_INPUT_FILETYPE' => 'sourcecode.cpp.objcpp' # Ensure Objective-C++ compatibility
   }
 
   # Exclude unnecessary generated files to prevent conflicts
