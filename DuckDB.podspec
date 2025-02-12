@@ -56,6 +56,9 @@ Pod::Spec.new do |spec|
   # Vendored frameworks
   spec.vendored_frameworks = "Sources/duckdb_swift_native.xcframework"
 
+  # Add module map for Cduckdb
+  spec.module_map = 'Sources/Cduckdb/module.modulemap'
+
   spec.requires_arc = true
   spec.frameworks   = "Foundation"
 end
